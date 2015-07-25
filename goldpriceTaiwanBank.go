@@ -61,13 +61,14 @@ type Price struct {
 }
 
 // GetTaiwanBankGoldPriceYear get whole year gold price from taiwan bank
-func GetTaiwanBankGoldPriceYear() (ret map[Date]Price) {
+func GetTaiwanBankGoldPriceYear() (dateArray []Date, ret map[Date]Price) {
 	var term int //
 	var y int
 	var m int
 	var curcd string // should be TWD
 	var when int
 	ret = make(map[Date]Price)
+	dateArray = make([]Date, 0)
 
 	now := time.Now()
 	term = year
@@ -109,16 +110,19 @@ func GetTaiwanBankGoldPriceYear() (ret map[Date]Price) {
 		sell, _ := strconv.Atoi(res[3])
 		price := Price{buy, sell}
 		ret[date] = price
+		dateArray = append(dateArray, date)
 	}
 
-	return ret
+	return
 	// TODO return map of a year
 }
 
 const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
 
-func GetTaiwanBankGoldPriceDay(date Date) (ret map[Time]Price) {
+// GetTaiwanBankGoldPriceDay get specifiy date gold price from taiwan bank
+func GetTaiwanBankGoldPriceDay(date Date) (timeArray []Time, ret map[Time]Price) {
 	ret = make(map[Time]Price)
+	timeArray = make([]Time, 0)
 	dateString := fmt.Sprintf("%d%02d%02d", date.year, date.month, date.day)
 
 	url := urlBankDay +
@@ -149,9 +153,10 @@ func GetTaiwanBankGoldPriceDay(date Date) (ret map[Time]Price) {
 		min, _ := strconv.Atoi(res[2])
 		buy, _ := strconv.Atoi(res[3])
 		sell, _ := strconv.Atoi(res[4])
-		time := Time{hour, min}
+		eventTime := Time{hour, min}
 		price := Price{buy, sell}
-		ret[time] = price
+		ret[eventTime] = price
+		timeArray = append(timeArray, eventTime)
 	}
 
 	return
