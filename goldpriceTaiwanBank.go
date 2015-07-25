@@ -11,7 +11,8 @@ import (
 	"time"
 )
 
-const urlBank = "http://rate.bot.com.tw/Pages/UIP005/UIP005INQ3.aspx?view=1&amp;lang=zh-TW"
+const urlBankYear = "http://rate.bot.com.tw/Pages/UIP005/UIP005INQ3.aspx?view=1&amp;lang=zh-TW"
+
 const viewStatKey = "__VIEWSTATE"
 const viewStat = "/wEPDwUKLTc3OTg4NTEyM2QYAgUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgoFBlJhZGlvNQUGUmFkaW8xBQZSYWRpbzIFBlJhZGlvMwUGUmFkaW80BQVjdGwwMgUFY3RsMDMFBWN0bDA0BQVjdGwwNQUFY3RsMDYFCW11bHRpVGFicw8PZAIBZPZJVCxGUh1sKGSIy7aqPTTqBGsH"
 const validationKey = "__EVENTVALIDATION"
@@ -49,6 +50,11 @@ type Date struct {
 	year, month, day int
 }
 
+// Time 23:59
+type Time struct {
+	hour, minute int
+}
+
 // Price of buy and sell
 type Price struct {
 	buy, sell int
@@ -70,7 +76,7 @@ func GetTaiwanBankGoldPriceYear() (ret map[Date]Price) {
 	curcd = currentTWN
 	when = before
 
-	resp, err := http.PostForm(urlBank,
+	resp, err := http.PostForm(urlBankYear,
 		url.Values{
 			"Button1":     {"查詢"}, // I don't know what the fuck is this
 			viewStatKey:   {viewStat},
@@ -107,4 +113,46 @@ func GetTaiwanBankGoldPriceYear() (ret map[Date]Price) {
 
 	return ret
 	// TODO return map of a year
+}
+
+const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
+
+func GetTaiwanBankGoldPriceDay(date Date) (ret map[Time]Price) {
+	ret = make(map[Time]Price)
+	dateString := fmt.Sprintf("%d%02d%02d", date.year, date.month, date.day)
+
+	url := urlBankDay +
+		"?" +
+		"&lang=zh-TW" +
+		"&whom=GB0030001000" + // don't know what
+		"&date=" + dateString +
+		"&afterOrNot=" + strconv.Itoa(before) +
+		"&curcd=" + currentTWN
+
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Printf("%v\n", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	body, _ := ioutil.ReadAll(resp.Body)
+
+	html := strings.Split(string(body), "\n")
+	for _, line := range html {
+		r := regexp.MustCompile(`">(\d{2}):(\d{2})<.+class="decimal">(\d+)</td><td class="decimal">(\d+)`)
+		res := r.FindStringSubmatch(line)
+		if res == nil {
+			continue
+		}
+		hour, _ := strconv.Atoi(res[1])
+		min, _ := strconv.Atoi(res[2])
+		buy, _ := strconv.Atoi(res[3])
+		sell, _ := strconv.Atoi(res[4])
+		time := Time{hour, min}
+		price := Price{buy, sell}
+		ret[time] = price
+	}
+
+	return
 }
