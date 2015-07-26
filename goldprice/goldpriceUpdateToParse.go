@@ -1,4 +1,4 @@
-package main
+package goldprice
 
 import (
 	"bytes"
@@ -31,7 +31,7 @@ func UpdateYear(dateArray []Date, yearPrice map[Date]Price) (ok bool) {
 		price := yearPrice[date]
 
 		json := fmt.Sprintf(`{"date":%d%02d%02d, "buy":%d, "sell":%d}`,
-			date.year, date.month, date.day,
+			date.Year, date.Month, date.Day,
 			price.buy, price.sell)
 		if debug {
 			fmt.Println(json)
@@ -80,7 +80,7 @@ func UpdateToday(today Date, timeArray []Time, dayPrice map[Time]Price) (ok bool
 		price := dayPrice[time]
 
 		json := fmt.Sprintf(`{"date":%d%02d%02d, "hour":%d, "minute":%d, "buy":%d, "sell":%d}`,
-			today.year, today.month, today.day,
+			today.Year, today.Month, today.Day,
 			time.hour, time.minute, price.buy, price.sell)
 
 		if debug {

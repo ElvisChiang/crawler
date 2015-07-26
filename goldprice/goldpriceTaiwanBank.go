@@ -1,4 +1,4 @@
-package main
+package goldprice
 
 import (
 	"fmt"
@@ -10,6 +10,8 @@ import (
 	"strings"
 	"time"
 )
+
+const debug = true
 
 const urlBankYear = "http://rate.bot.com.tw/Pages/UIP005/UIP005INQ3.aspx?view=1&amp;lang=zh-TW"
 
@@ -47,7 +49,7 @@ const (
 
 // Date 1234/5/6
 type Date struct {
-	year, month, day int
+	Year, Month, Day int
 }
 
 // Time 23:59
@@ -123,7 +125,7 @@ const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
 func GetTaiwanBankGoldPriceDay(date Date) (timeArray []Time, ret map[Time]Price) {
 	ret = make(map[Time]Price)
 	timeArray = make([]Time, 0)
-	dateString := fmt.Sprintf("%d%02d%02d", date.year, date.month, date.day)
+	dateString := fmt.Sprintf("%d%02d%02d", date.Year, date.Month, date.Day)
 
 	url := urlBankDay +
 		"?" +

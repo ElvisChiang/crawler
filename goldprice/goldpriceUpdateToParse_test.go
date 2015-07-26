@@ -1,4 +1,4 @@
-package main
+package goldprice
 
 import "testing"
 

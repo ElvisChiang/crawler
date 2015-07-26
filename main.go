@@ -1,13 +1,15 @@
 package main
 
+import "./goldprice"
+
 const debug = true
 
 func main() {
 
-	today := Date{2015, 7, 24}
-	dateArray, yearPrice := GetTaiwanBankGoldPriceYear()
-	timeArray, dayPrice := GetTaiwanBankGoldPriceDay(today)
+	today := goldprice.Date{2015, 7, 24}
+	dateArray, yearPrice := goldprice.GetTaiwanBankGoldPriceYear()
+	timeArray, dayPrice := goldprice.GetTaiwanBankGoldPriceDay(today)
 
-	UpdateYear(dateArray, yearPrice)
-	UpdateToday(today, timeArray, dayPrice)
+	goldprice.UpdateYear(dateArray, yearPrice)
+	goldprice.UpdateToday(today, timeArray, dayPrice)
 }

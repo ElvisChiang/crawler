@@ -1,4 +1,4 @@
-package main
+package goldprice
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func TestGetTaiwanBankGoldPriceYear(t *testing.T) {
 	}
 	for _, date := range dateArray {
 		price := yearPrice[date]
-		fmt.Printf("%d/%02d/%02d buy %04d sell %04d\n", date.year, date.month, date.day, price.buy, price.sell)
+		fmt.Printf("%d/%02d/%02d buy %04d sell %04d\n", date.Year, date.Month, date.Day, price.buy, price.sell)
 	}
 }
 
