@@ -3,7 +3,7 @@ package goldprice
 import "testing"
 
 func TestUpdateYear(t *testing.T) {
-	dateArray, yearPrice := GetTaiwanBankGoldPriceYear()
+	dateArray, yearPrice := GetYearFromTaiwanBank()
 	result := UpdateYear(dateArray, yearPrice)
 	if result == false {
 		t.Errorf("result incorrect")
@@ -18,7 +18,7 @@ func TestUpdateToday(t *testing.T) {
 	}
 	for _, c := range cases {
 		today := c.in
-		timeArray, dayPrice := GetTaiwanBankGoldPriceDay(today)
+		timeArray, dayPrice := GetDayFromTaiwanBank(today)
 		result := UpdateToday(today, timeArray, dayPrice)
 		if result == false {
 			t.Errorf("result incorrect")

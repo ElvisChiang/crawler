@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestGetTaiwanBankGoldPriceYear(t *testing.T) {
-	dateArray, yearPrice := GetTaiwanBankGoldPriceYear()
+func TestGetYearFromTaiwanBank(t *testing.T) {
+	dateArray, yearPrice := GetYearFromTaiwanBank()
 	if len(yearPrice) == 0 {
 		t.Errorf("cannot fetch data by year")
 	}
@@ -16,14 +16,14 @@ func TestGetTaiwanBankGoldPriceYear(t *testing.T) {
 	}
 }
 
-func TestGetTaiwanBankGoldPriceDay(t *testing.T) {
+func TestGetDayFromTaiwanBank(t *testing.T) {
 	cases := []struct {
 		in Date
 	}{
 		{Date{2015, 7, 24}},
 	}
 	for _, c := range cases {
-		timeArray, dayPrice := GetTaiwanBankGoldPriceDay(c.in)
+		timeArray, dayPrice := GetDayFromTaiwanBank(c.in)
 		if len(dayPrice) == 0 {
 			t.Errorf("cannot fetch data by day")
 		}

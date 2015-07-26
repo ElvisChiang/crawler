@@ -63,7 +63,7 @@ type Price struct {
 }
 
 // GetTaiwanBankGoldPriceYear get whole year gold price from taiwan bank
-func GetTaiwanBankGoldPriceYear() (dateArray []Date, ret map[Date]Price) {
+func GetYearFromTaiwanBank() (dateArray []Date, ret map[Date]Price) {
 	var term int //
 	var y int
 	var m int
@@ -122,7 +122,7 @@ func GetTaiwanBankGoldPriceYear() (dateArray []Date, ret map[Date]Price) {
 const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
 
 // GetTaiwanBankGoldPriceDay get specifiy date gold price from taiwan bank
-func GetTaiwanBankGoldPriceDay(date Date) (timeArray []Time, ret map[Time]Price) {
+func GetDayFromTaiwanBank(date Date) (timeArray []Time, ret map[Time]Price) {
 	ret = make(map[Time]Price)
 	timeArray = make([]Time, 0)
 	dateString := fmt.Sprintf("%d%02d%02d", date.Year, date.Month, date.Day)
