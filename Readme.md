@@ -6,7 +6,7 @@
 
 - gold price crawler
 
-| file                   | description           |
-| -------------          |:---------------------:|
-| goldpriceTaiwanBank.go | taiwan bank gold price|
-
+| file                   | description              |
+| -------------          |:------------------------:|
+| goldprice/             | taiwan bank gold price   |
+| buy.gamer.com.tw/      | crawler for bahamut item |
