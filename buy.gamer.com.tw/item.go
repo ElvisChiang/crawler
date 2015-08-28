@@ -20,6 +20,7 @@ const urlPrefix = "http://buy.gamer.com.tw/atmItem.php?sn="
 // ItemData baha item data
 type ItemData struct {
 	url      string
+	itemName string
 	platform string
 	vendor   string
 	version  string
@@ -79,6 +80,6 @@ func parseContent(html []string) (data *ItemData, ok bool) {
 		fmt.Println("unmatch")
 		return nil, false
 	}
-	data = &ItemData{res[1], res[2], res[3], res[4], res[5], res[6], res[7]}
+	data = &ItemData{res[1], res[2], res[3], res[4], res[5], res[6], res[7], res[8]}
 	return data, true
 }

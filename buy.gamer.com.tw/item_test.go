@@ -21,8 +21,8 @@ func TestGetItemData(t *testing.T) {
 			t.Errorf("cannot fetch data " + strconv.Itoa(c.in))
 			continue
 		}
-		fmt.Printf("img url: %s\nplatform: %s\nvendor: %s\nversion: %s\ndate: %s\nduedate: %s\nprice: %s\n",
-			data.url, data.platform, data.vendor, data.version, data.date, data.duedate, data.price)
+		fmt.Printf("img url: %s\nitem name: %s\nplatform: %s\nvendor: %s\nversion: %s\ndate: %s\nduedate: %s\nprice: %s\n",
+			data.url, data.itemName, data.platform, data.vendor, data.version, data.date, data.duedate, data.price)
 		fmt.Println("----------------")
 	}
 }
