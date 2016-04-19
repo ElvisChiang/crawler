@@ -6,7 +6,7 @@ const debug = true
 
 func main() {
 
-	today := goldprice.Date{2015, 7, 24}
+	today := goldprice.Date{Year: 2016, Month: 4, Day: 18}
 	dateArray, yearPrice := goldprice.GetYearFromTaiwanBank()
 	timeArray, dayPrice := goldprice.GetDayFromTaiwanBank(today)
 
