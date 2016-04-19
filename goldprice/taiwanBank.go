@@ -16,9 +16,9 @@ const debug = true
 const urlBankYear = "http://rate.bot.com.tw/Pages/UIP005/UIP005INQ3.aspx?view=1&amp;lang=zh-TW"
 
 const viewStatKey = "__VIEWSTATE"
-const viewStat = "/wEPDwUKLTc3OTg4NTEyM2QYAgUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgoFBlJhZGlvNQUGUmFkaW8xBQZSYWRpbzIFBlJhZGlvMwUGUmFkaW80BQVjdGwwMgUFY3RsMDMFBWN0bDA0BQVjdGwwNQUFY3RsMDYFCW11bHRpVGFicw8PZAIBZPZJVCxGUh1sKGSIy7aqPTTqBGsH"
+const viewStat = "/wEPDwULLTE3ODAwNTkwNTFkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYHBQZSYWRpbzUFBlJhZGlvMQUGUmFkaW8yBQZSYWRpbzMFBlJhZGlvNAUFY3RsMDIFBWN0bDAzBQltdWx0aVRhYnMPD2QCAWQIrRIWn14+pxO1s0LxNTzpJDewpg=="
 const validationKey = "__EVENTVALIDATION"
-const validation = "/wEWEQKouumRBAKOkoCCCwKMhc76CQLWssLjAgKf5L6bDQLL3LrjCgLW3JbjCgLS3JbjCgLR3JbjCgLM3JbjCgLl18nSCwLm1/nSCwL9/oqMCQKLts3CAQKUts3CAQKM54rGBgLWlM+bAvA8FJroJ9FZZI52UscKHadSwtMt"
+const validation = "/wEdAA5Ga+nSqjK5uUye/4lqnHhxp7+cQefjgloeOmoWSbn28rmIL5vrvRo+chN0IrYmv1mTkKDhwt9/WQNeB4ViuWNgcMx0/4kN+q4HQkIfmt6OsgcYUqaeErR2FzC2w/TY+YGZQ64G7aavBrw885NMMoQrQLiSjRHUjGqETsET1vMRZ5SFaW19BRC0Lg5Jpx0kgWSC71UtEOrfb/oUZNhY9MQCXFWqB4QKYjYFCvvDmQ0Nk8kCKvP8wJMd+eRMYfuMWi/N+DvxnwFeFeJ9MIBWR6935bDqD1t67/Yn/Stpk4YjYQlQPvoZofb9D+nPE9N62lcHYeg7"
 
 // form input parameter for date
 const (
