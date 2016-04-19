@@ -1,6 +1,6 @@
 package main
 
-import "./goldprice"
+import "github.com/ElvisChiang/crawler/goldprice"
 
 const debug = true
 
