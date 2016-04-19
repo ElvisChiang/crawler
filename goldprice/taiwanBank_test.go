@@ -12,7 +12,7 @@ func TestGetYearFromTaiwanBank(t *testing.T) {
 	}
 	for _, date := range dateArray {
 		price := yearPrice[date]
-		fmt.Printf("%d/%02d/%02d buy %04d sell %04d\n", date.Year, date.Month, date.Day, price.buy, price.sell)
+		fmt.Printf("%d/%02d/%02d buy %04d sell %04d\n", date.Year, date.Month, date.Day, price.Buy, price.Sell)
 	}
 }
 
@@ -29,7 +29,7 @@ func TestGetDayFromTaiwanBank(t *testing.T) {
 		}
 		for _, time := range timeArray {
 			price := dayPrice[time]
-			fmt.Printf("%02d:%02d buy %04d sell %04d\n", time.hour, time.minute, price.buy, price.sell)
+			fmt.Printf("%02d:%02d buy %04d sell %04d\n", time.Hour, time.Minute, price.Buy, price.Sell)
 		}
 	}
 }

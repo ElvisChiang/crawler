@@ -54,12 +54,12 @@ type Date struct {
 
 // Time 23:59
 type Time struct {
-	hour, minute int
+	Hour, Minute int
 }
 
 // Price of buy and sell
 type Price struct {
-	buy, sell int
+	Buy, Sell int
 }
 
 // GetYearFromTaiwanBank get whole year gold price from taiwan bank

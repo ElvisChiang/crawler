@@ -32,7 +32,7 @@ func UpdateYear(dateArray []Date, yearPrice map[Date]Price) (ok bool) {
 
 		json := fmt.Sprintf(`{"date":%d%02d%02d, "buy":%d, "sell":%d}`,
 			date.Year, date.Month, date.Day,
-			price.buy, price.sell)
+			price.Buy, price.Sell)
 		if debug {
 			fmt.Println(json)
 		}
@@ -81,7 +81,7 @@ func UpdateToday(today Date, timeArray []Time, dayPrice map[Time]Price) (ok bool
 
 		json := fmt.Sprintf(`{"date":%d%02d%02d, "hour":%d, "minute":%d, "buy":%d, "sell":%d}`,
 			today.Year, today.Month, today.Day,
-			time.hour, time.minute, price.buy, price.sell)
+			time.Hour, time.Minute, price.Buy, price.Sell)
 
 		if debug {
 			fmt.Println(json)
