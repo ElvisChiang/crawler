@@ -62,7 +62,7 @@ type Price struct {
 	buy, sell int
 }
 
-// GetTaiwanBankGoldPriceYear get whole year gold price from taiwan bank
+// GetYearFromTaiwanBank get whole year gold price from taiwan bank
 func GetYearFromTaiwanBank() (dateArray []Date, ret map[Date]Price) {
 	var term int //
 	var y int
@@ -121,7 +121,7 @@ func GetYearFromTaiwanBank() (dateArray []Date, ret map[Date]Price) {
 
 const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
 
-// GetTaiwanBankGoldPriceDay get specifiy date gold price from taiwan bank
+// GetDayFromTaiwanBank get specifiy date gold price from taiwan bank
 func GetDayFromTaiwanBank(date Date) (timeArray []Time, ret map[Time]Price) {
 	ret = make(map[Time]Price)
 	timeArray = make([]Time, 0)
