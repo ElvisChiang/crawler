@@ -26,7 +26,7 @@ func UpdateYear(dateArray []Date, yearPrice map[Date]Price) (ok bool) {
 
 	urlYearPrice := fmt.Sprintf("https://api.parse.com/%d/classes/%s", version, classYear)
 
-	// TOOD: delete all first
+	// TODO: delete all first
 	for _, date := range dateArray {
 		price := yearPrice[date]
 
@@ -75,7 +75,7 @@ func UpdateToday(today Date, timeArray []Time, dayPrice map[Time]Price) (ok bool
 
 	urlTodayPrice := fmt.Sprintf("https://api.parse.com/%d/classes/%s", version, classDay)
 
-	// TOOD: delete all first
+	// TODO: delete all first
 	for _, time := range timeArray {
 		price := dayPrice[time]
 

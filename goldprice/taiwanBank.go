@@ -121,7 +121,7 @@ func GetYearFromTaiwanBank() (dateArray []Date, ret map[Date]Price) {
 
 const urlBankDay = "http://rate.bot.com.tw/Pages/UIP005/UIP00511.aspx"
 
-// GetDayFromTaiwanBank get specifiy date gold price from taiwan bank
+// GetDayFromTaiwanBank get specify date gold price from taiwan bank
 func GetDayFromTaiwanBank(date Date) (timeArray []Time, ret map[Time]Price) {
 	ret = make(map[Time]Price)
 	timeArray = make([]Time, 0)

@@ -1,6 +1,6 @@
-
 # web crawler
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/ElvisChiang/crawler)](https://goreportcard.com/report/github.com/ElvisChiang/crawler)
 
 ### routine
 
